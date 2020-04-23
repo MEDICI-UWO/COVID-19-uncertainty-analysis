@@ -9,7 +9,7 @@
 % INPUT
 %   xmin: Minimum value of your x range
 %   xmax: Maximum value of your x range
-%   level: Vector/Numeric of contour levels
+%   level: Vector of contour levels
 %   N: Length of output vector
 % 
 % OUTPUT
@@ -18,8 +18,6 @@
 % ==========================================================================
 function y = make_y_vector(xmin, xmax, level, N)
   ymax = max(level)/xmin;
-  ymin = max(level)/xmax;
-  temp = (ymax - ymin)/10;
-  ymin = ymin - temp;
+  ymin = min(level)/xmax;
   y = linspace(ymin, ymax, N);
 end
