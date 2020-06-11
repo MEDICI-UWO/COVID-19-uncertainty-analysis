@@ -2,3 +2,11 @@
 .Rhistory
 .Rproj.user/
 .DS_Store
+Image/beta_CFR_200526.png
+Image/cases_CFR_2020_month_percent.png
+Image/USA_beta_compare.png
+Image/beta_CFR_200420_cumulative.png
+Matlab/beta_CFR_top3_200420.m
+Matlab/beta_CFR_top3_200526.m
+Matlab/cases_CFR_top3_2020_month.m
+Matlab/USA_compare.m
