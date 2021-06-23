@@ -22,12 +22,15 @@
 % 
 % OUTPUT
 %   country_Z: Matrix, theoretical number of deaths
-%   level: contour levels
+%   level: Vector, contour levels
+%   deaths: Integer, number of COVID-19 deaths that was reported within the given date range
 % ==========================================================================
 
-function [country_Z, level] = get_beta_contour(covid_data, data, Z, country, year, begin_date, end_date, n_days)
+function [country_Z, level, deaths] = get_beta_contour(covid_data, data, Z, country, year, begin_date, end_date, n_days)
     % Get number of COVID-19 cases
     covid_cases = covid_data.Cumulative_cases(covid_data.Country == country & covid_data.Date_reported == end_date, :) - covid_data.Cumulative_cases(covid_data.Country == country & covid_data.Date_reported == begin_date, :);
+    % Get number of COVID-19 deaths
+    deaths = covid_data.Cumulative_deaths(covid_data.Country == country & covid_data.Date_reported == end_date, :) - covid_data.Cumulative_deaths(covid_data.Country == country & covid_data.Date_reported == begin_date, :);
     % Multiply the number of cases to our "base" matrix
     country_Z = Z*covid_cases;
     % Filter data to obtain data just for Italy

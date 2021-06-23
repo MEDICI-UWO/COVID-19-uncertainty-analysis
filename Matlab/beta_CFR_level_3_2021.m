@@ -7,7 +7,7 @@
 % United Kingdom, Russia, China, India
 % 
 % AUTHOR: EYSC
-% LAST MODIFIED: June 18, 2021
+% LAST MODIFIED: June 22, 2021
 % =========================================================================
 
 %% Set up
@@ -44,7 +44,7 @@ figure
 %% United States
 ax1 = subplot(2, 4, 1);
 
-[country_Z, level] = get_beta_contour(covid_data, data, Z, "United States of America", 2021, '2020-12-31', '2021-05-31', 150);
+[country_Z, level, covid_deaths] = get_beta_contour(covid_data, data, Z, "United States of America", 2021, '2020-12-31', '2021-05-31', 150);
 
 % Plot contour
 contourf(X, Y, country_Z, level, 'LineStyle', 'none');
@@ -57,6 +57,8 @@ colormap(gca, cmap)
 hold on;
 % Add white contour lines as guides for number of death
 contour(X, Y, country_Z, [1e5, 1e6], 'LineColor', 'w', 'LineWidth', 1);
+% Add black contour line to indicate the number of reported COVID-19 deaths
+contour(X, Y, country_Z, [covid_deaths, covid_deaths], 'LineColor', 'k', 'LineWidth', 1.5);
 % Add text annotations
 text(0.0075, 1, '100k', 'Color', 'w', 'VerticalAlignment', 'bottom')
 text(0.049, 1.775, '1M', 'Color', 'w', 'HorizontalAlignment', 'right')
@@ -76,7 +78,7 @@ yticklabels({1, 2, 3, 4, 5, 6, 7, 8});
 %% Brazil
 ax2 = subplot(2, 4, 2);
 
-[country_Z, level] = get_beta_contour(covid_data, data, Z, "Brazil", 2021, '2020-12-31', '2021-05-31', 150);
+[country_Z, level, covid_deaths] = get_beta_contour(covid_data, data, Z, "Brazil", 2021, '2020-12-31', '2021-05-31', 150);
 
 % Plot contour
 contourf(X, Y, country_Z, level, 'LineStyle', 'none');
@@ -89,6 +91,8 @@ colormap(gca, cmap)
 hold on;
 % Add white contour lines as guides for number of death
 contour(X, Y, country_Z, [1e5, 1e6], 'LineColor', 'w', 'LineWidth', 1);
+% Add black contour line to indicate the number of reported COVID-19 deaths
+contour(X, Y, country_Z, [covid_deaths, covid_deaths], 'LineColor', 'k', 'LineWidth', 1.5);
 % Add text annotations
 text(0.0115, 1, '100k', 'Color', 'w', 'VerticalAlignment', 'bottom')
 text(0.049, 2.75, '1M', 'Color', 'w', 'HorizontalAlignment', 'right')
@@ -108,7 +112,7 @@ yticklabels({1, 2, 3, 4, 5, 6, 7, 8});
 %% South Africa
 ax3 = subplot(2, 4, 3);
 
-[country_Z, level] = get_beta_contour(covid_data, data, Z, "South Africa", 2021, '2020-12-31', '2021-05-31', 150);
+[country_Z, level, covid_deaths] = get_beta_contour(covid_data, data, Z, "South Africa", 2021, '2020-12-31', '2021-05-31', 150);
 
 % Plot contour
 contourf(X, Y, country_Z, level, 'LineStyle', 'none');
@@ -121,6 +125,8 @@ colormap(gca, cmap)
 hold on;
 % Add white contour lines as guides for number of death
 contour(X, Y, country_Z, [1e4, 1e5], 'LineColor', 'w', 'LineWidth', 1);
+% Add black contour line to indicate the number of reported COVID-19 deaths
+contour(X, Y, country_Z, [covid_deaths, covid_deaths], 'LineColor', 'k', 'LineWidth', 1.5);
 % Add text annotations
 text(0.01575, 1, '10k', 'Color', 'w', 'VerticalAlignment', 'bottom')
 text(0.049, 4.2, '100k', 'Color', 'w', 'HorizontalAlignment', 'right')
@@ -140,7 +146,7 @@ yticklabels({1, 2, 3, 4, 5, 6, 7, 8});
 %% Iran
 ax4 = subplot(2, 4, 4);
 
-[country_Z, level] = get_beta_contour(covid_data, data, Z, "Iran (Islamic Republic of)", 2021, '2020-12-31', '2021-05-31', 150);
+[country_Z, level, covid_deaths] = get_beta_contour(covid_data, data, Z, "Iran (Islamic Republic of)", 2021, '2020-12-31', '2021-05-31', 150);
 
 % Plot contour
 contourf(X, Y, country_Z, level, 'LineStyle', 'none');
@@ -153,6 +159,8 @@ colormap(gca, cmap)
 hold on;
 % Add white contour lines as guides for number of death
 contour(X, Y, country_Z, [1e4, 1e5], 'LineColor', 'w', 'LineWidth', 1);
+% Add black contour line to indicate the number of reported COVID-19 deaths
+contour(X, Y, country_Z, [covid_deaths, covid_deaths], 'LineColor', 'k', 'LineWidth', 1.5);
 % Add text annotations
 text(0.007, 1, '10k', 'Color', 'w', 'VerticalAlignment', 'bottom')
 text(0.049, 1.55, '100k', 'Color', 'w', 'HorizontalAlignment', 'right')
@@ -172,7 +180,7 @@ yticklabels({1, 2, 3, 4, 5, 6, 7, 8});
 %% United Kingdom
 ax5 = subplot(2, 4, 5);
 
-[country_Z, level] = get_beta_contour(covid_data, data, Z, "United Kingdom", 2021, '2020-12-31', '2021-05-31', 150);
+[country_Z, level, covid_deaths] = get_beta_contour(covid_data, data, Z, "United Kingdom", 2021, '2020-12-31', '2021-05-31', 150);
 
 % Plot contour
 contourf(X, Y, country_Z, level, 'LineStyle', 'none');
@@ -185,6 +193,8 @@ colormap(gca, cmap)
 hold on;
 % Add white contour lines as guides for number of death
 contour(X, Y, country_Z, [1e4, 1e5], 'LineColor', 'w', 'LineWidth', 1);
+% Add black contour line to indicate the number of reported COVID-19 deaths
+contour(X, Y, country_Z, [covid_deaths, covid_deaths], 'LineColor', 'k', 'LineWidth', 1.5);
 % Add text annotations
 text(0.0055, 1, '10k', 'Color', 'w', 'VerticalAlignment', 'bottom')
 text(0.049, 1.275, '100k', 'Color', 'w', 'HorizontalAlignment', 'right')
@@ -204,7 +214,7 @@ yticklabels({1, 2, 3, 4, 5, 6, 7, 8});
 %% Russia
 ax6 = subplot(2, 4, 6);
 
-[country_Z, level] = get_beta_contour(covid_data, data, Z, "Russian Federation", 2021, '2020-12-31', '2021-05-31', 150);
+[country_Z, level, covid_deaths] = get_beta_contour(covid_data, data, Z, "Russian Federation", 2021, '2020-12-31', '2021-05-31', 150);
 
 % Plot contour
 contourf(X, Y, country_Z, level, 'LineStyle', 'none');
@@ -217,6 +227,8 @@ colormap(gca, cmap)
 hold on;
 % Add white contour lines as guides for number of death
 contour(X, Y, country_Z, [1e4, 1e5], 'LineColor', 'w', 'LineWidth', 1);
+% Add black contour line to indicate the number of reported COVID-19 deaths
+contour(X, Y, country_Z, [covid_deaths, covid_deaths], 'LineColor', 'k', 'LineWidth', 1.5);
 % Add text annotations
 text(0.00575, 1, '10k', 'Color', 'w', 'VerticalAlignment', 'bottom')
 text(0.0485, 1.4, '100k', 'Color', 'w', 'HorizontalAlignment', 'right')
@@ -236,7 +248,7 @@ yticklabels({1, 2, 3, 4, 5, 6, 7, 8});
 %% China
 ax7 = subplot(2, 4, 7);
 
-[country_Z, level] = get_beta_contour(covid_data, data, Z, "China", 2021, '2020-12-31', '2021-05-31', 150);
+[country_Z, level, covid_deaths] = get_beta_contour(covid_data, data, Z, "China", 2021, '2020-12-31', '2021-05-31', 150);
 
 % Plot contour
 contourf(X, Y, country_Z, level, 'LineStyle', 'none');
@@ -249,6 +261,8 @@ colormap(gca, cmap)
 hold on;
 % Add white contour lines as guides for number of death
 contour(X, Y, country_Z, [1e2, 1e3], 'LineColor', 'w', 'LineWidth', 1);
+% Add black contour line to indicate the number of reported COVID-19 deaths
+contour(X, Y, country_Z, [covid_deaths, covid_deaths], 'LineColor', 'k', 'LineWidth', 1.5);
 % Add text annotations
 text(0.00775, 1, '100', 'Color', 'w', 'VerticalAlignment', 'bottom')
 text(0.049, 1.675, '1k', 'Color', 'w', 'HorizontalAlignment', 'right')
@@ -264,7 +278,7 @@ yticklabels({1, 2, 3, 4, 5, 6, 7, 8});
 %% India
 ax8 = subplot(2, 4, 8);
 
-[country_Z, level] = get_beta_contour(covid_data, data, Z, "India", 2021, '2020-12-31', '2021-05-31', 150);
+[country_Z, level, covid_deaths] = get_beta_contour(covid_data, data, Z, "India", 2021, '2020-12-31', '2021-05-31', 150);
 
 % Plot contour
 contourf(X, Y, country_Z, level, 'LineStyle', 'none');
@@ -277,6 +291,8 @@ colormap(gca, cmap)
 hold on;
 % Add white contour lines as guides for number of death
 contour(X, Y, country_Z, [1e5, 1e6], 'LineColor', 'w', 'LineWidth', 1);
+% Add black contour line to indicate the number of reported COVID-19 deaths
+contour(X, Y, country_Z, [covid_deaths, covid_deaths], 'LineColor', 'k', 'LineWidth', 1.5);
 % Add text annotations
 text(0.006, 1, '100k', 'Color', 'w', 'VerticalAlignment', 'bottom')
 text(0.049, 1.375, '1M', 'Color', 'w', 'HorizontalAlignment', 'right')

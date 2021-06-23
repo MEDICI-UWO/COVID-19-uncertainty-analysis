@@ -10,7 +10,7 @@
 % 4) November 20 - December 20, 2020
 % 
 % AUTHOR: EYSC
-% LAST MODIFIED: June 20, 2021
+% LAST MODIFIED: June 22, 2021
 % =========================================================================
 
 %% Set up
@@ -47,7 +47,7 @@ figure
 %% United States (February 19 - March 20, 2020)
 ax1 = subplot(1, 4, 1);
 
-[country_Z, level] = get_beta_contour(covid_data, data, Z, "United States of America", 2020, '2020-02-18', '2020-03-20', 30);
+[country_Z, level, covid_deaths] = get_beta_contour(covid_data, data, Z, "United States of America", 2020, '2020-02-18', '2020-03-20', 30);
 
 % Plot contour
 contourf(X, Y, country_Z, level, 'LineStyle', 'none');
@@ -60,6 +60,8 @@ colormap(gca, cmap)
 hold on;
 % Add white contour lines as guides for number of death
 contour(X, Y, country_Z, [1e2, 1e3], 'LineColor', 'w', 'LineWidth', 1);
+% Add black contour line to indicate the number of reported COVID-19 deaths
+contour(X, Y, country_Z, [covid_deaths, covid_deaths], 'LineColor', 'k', 'LineWidth', 1.5);
 % Add text annotations
 text(0.007, 1, '100', 'Color', 'w', 'VerticalAlignment', 'bottom')
 text(0.049, 1.55, '1k', 'Color', 'w', 'HorizontalAlignment', 'right')
@@ -79,7 +81,7 @@ yticklabels({1, 2, 3, 4, 5, 6, 7, 8});
 %% United States (June 20 - July 20, 2020)
 ax2 = subplot(1, 4, 2);
 
-[country_Z, level] = get_beta_contour(covid_data, data, Z, "United States of America", 2020, '2020-06-19', '2020-07-20', 30);
+[country_Z, level, covid_deaths] = get_beta_contour(covid_data, data, Z, "United States of America", 2020, '2020-06-19', '2020-07-20', 30);
 
 % Plot contour
 contourf(X, Y, country_Z, level, 'LineStyle', 'none');
@@ -92,6 +94,8 @@ colormap(gca, cmap)
 hold on;
 % Add white contour lines as guides for number of death
 contour(X, Y, country_Z, [1e4, 1e5], 'LineColor', 'w', 'LineWidth', 1);
+% Add black contour line to indicate the number of reported COVID-19 deaths
+contour(X, Y, country_Z, [covid_deaths, covid_deaths], 'LineColor', 'k', 'LineWidth', 1.5);
 % Add text annotations
 text(0.007, 1, '10k', 'Color', 'w', 'VerticalAlignment', 'bottom')
 text(0.049, 1.7, '100k', 'Color', 'w', 'HorizontalAlignment', 'right')
@@ -111,7 +115,7 @@ yticklabels({1, 2, 3, 4, 5, 6, 7, 8});
 %% United States (October 20 - November 19, 2020)
 ax3 = subplot(1, 4, 3);
 
-[country_Z, level] = get_beta_contour(covid_data, data, Z, "United States of America", 2020, '2020-10-19', '2020-11-19', 30);
+[country_Z, level, covid_deaths] = get_beta_contour(covid_data, data, Z, "United States of America", 2020, '2020-10-19', '2020-11-19', 30);
 
 % Plot contour
 contourf(X, Y, country_Z, level, 'LineStyle', 'none');
@@ -124,6 +128,8 @@ colormap(gca, cmap)
 hold on;
 % Add white contour lines as guides for number of death
 contour(X, Y, country_Z, [1e4, 1e5], 'LineColor', 'w', 'LineWidth', 1);
+% Add black contour line to indicate the number of reported COVID-19 deaths
+contour(X, Y, country_Z, [covid_deaths, covid_deaths], 'LineColor', 'k', 'LineWidth', 1.5);
 % Add text annotations
 text(0.0035, 1, '10k', 'Color', 'w', 'VerticalAlignment', 'bottom')
 text(0.0305, 1, '100k', 'Color', 'w', 'VerticalAlignment', 'bottom')
@@ -143,7 +149,7 @@ yticklabels({1, 2, 3, 4, 5, 6, 7, 8});
 %% United States (November 20 - December 20, 2020)
 ax4 = subplot(1, 4, 4);
 
-[country_Z, level] = get_beta_contour(covid_data, data, Z, "United States of America", 2020, '2020-11-19', '2020-12-20', 30);
+[country_Z, level, covid_deaths] = get_beta_contour(covid_data, data, Z, "United States of America", 2020, '2020-11-19', '2020-12-20', 30);
 
 % Plot contour
 contourf(X, Y, country_Z, level, 'LineStyle', 'none');
@@ -156,6 +162,8 @@ colormap(gca, cmap)
 hold on;
 % Add white contour lines as guides for number of death
 contour(X, Y, country_Z, [1e4, 1e5], 'LineColor', 'w', 'LineWidth', 1);
+% Add black contour line to indicate the number of reported COVID-19 deaths
+contour(X, Y, country_Z, [covid_deaths, covid_deaths], 'LineColor', 'k', 'LineWidth', 1.5);
 % Add text annotations
 text(0.002, 1, '10k', 'Color', 'w', 'VerticalAlignment', 'bottom')
 text(0.0165, 1, '100k', 'Color', 'w', 'VerticalAlignment', 'bottom')
